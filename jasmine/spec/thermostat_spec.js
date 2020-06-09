@@ -15,4 +15,9 @@ describe("thermostat",function(){
     thermostat.down(1);
     expect(thermostat.currentTemp()).toEqual(19);
   });
+
+  it ("should throw an error if temperature is decreased to lower than 10", function(){
+    var thermostat = new Thermostat();
+    expect(function() {thermostat.down(11)}).toThrow("Temperature would be too low!")
+  })
 });
