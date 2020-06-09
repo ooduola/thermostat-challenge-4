@@ -9,4 +9,10 @@ describe("thermostat",function(){
     thermostat.up(1);
     expect(thermostat.currentTemp()).toEqual(21);
   });
+
+  it ("should decrease the temperature with a down function", function(){
+    var thermostat = new Thermostat();
+    thermostat.down(1);
+    expect(thermostat.currentTemp()).toEqual(19);
+  });
 });
