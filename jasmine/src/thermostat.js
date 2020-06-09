@@ -19,3 +19,7 @@ Thermostat.prototype.down = function(temperature) {
   }
   return this.temperature -= temperature;
 };
+
+Thermostat.prototype.isPowerSaverOn = function() {
+  return true;
+};
