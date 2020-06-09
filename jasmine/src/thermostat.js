@@ -1,8 +1,9 @@
 function Thermostat() {
   this.temperature = 20;
+  this.powerSaver = true;
 };
 
-Thermostat.prototype.currentTemp = function() {
+Thermostat.prototype.getCurrentTemp = function() {
   return this.temperature;
 };
 
@@ -21,5 +22,9 @@ Thermostat.prototype.down = function(temperature) {
 };
 
 Thermostat.prototype.isPowerSaverOn = function() {
-  return true;
+  return this.powerSaver === true;
+};
+
+Thermostat.prototype.switchPowerSaverOff = function() {
+  this.powerSaver = false
 };
