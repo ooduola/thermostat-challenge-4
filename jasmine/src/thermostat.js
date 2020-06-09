@@ -7,6 +7,9 @@ Thermostat.prototype.currentTemp = function() {
 };
 
 Thermostat.prototype.up = function(temperature) {
+  if ((this.temperature + temperature) > 32) {
+    throw "Temperature would be too high!"
+  }
   return this.temperature += temperature;
 };
 
