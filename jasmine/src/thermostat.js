@@ -11,5 +11,8 @@ Thermostat.prototype.up = function(temperature) {
 };
 
 Thermostat.prototype.down = function(temperature) {
+  if ((this.temperature - temperature) < 10) {
+    throw "Temperature would be too low!";
+  }
   return this.temperature -= temperature;
 };
