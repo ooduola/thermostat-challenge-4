@@ -55,4 +55,11 @@ describe("thermostat",function(){
     expect(thermostat.getMaxTemp()).toEqual(25);
   });
 
+  it("it resets temperature to 20", function(){
+    var thermostat = new Thermostat();
+    thermostat.up(5);
+    thermostat.resetTemperature();
+    expect(thermostat.getCurrentTemp()).toEqual(20);
+  });
+
 });
