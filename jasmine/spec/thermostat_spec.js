@@ -21,9 +21,22 @@ describe("thermostat",function(){
     expect(function() {thermostat.down(11)}).toThrow("Temperature would be too low!")
   });
 
-  it ("should throw an error if temperature is incresed to higher than 32", function(){
+  it ("with powerSaver on, it throws an eroor if temp is increased to higher than 25", function(){
     var thermostat = new Thermostat();
-    expect(function() {thermostat.up(13)}).toThrow("Temperature would be too high!")
+    expect(function() {thermostat.up(6)}).toThrow("Temperature would be too high!")
+  });
+
+  it ("switching powerSaver off sets the maxTemp to 32", function() {
+    var thermostat = new Thermostat();
+    thermostat.switchPowerSaverOff();
+    expect(thermostat.getMaxTemp()).toEqual(32);
+  });
+
+  it ("can raise temp to above 25 when powerSaver is off", function() {
+    var thermostat = new Thermostat();
+    thermostat.switchPowerSaverOff();
+    thermostat.up(7);
+    expect(thermostat.getCurrentTemp()).toEqual(27);
   });
 
   it ("should have power-saver on by default", function() {
@@ -36,4 +49,10 @@ describe("thermostat",function(){
     thermostat.switchPowerSaverOff();
     expect(thermostat.isPowerSaverOn()).toEqual(false);
   });
+
+  it ("should have a maximum temperature of 25 when powerSaver is on", function(){
+    var thermostat = new Thermostat();
+    expect(thermostat.getMaxTemp()).toEqual(25);
+  });
+
 });

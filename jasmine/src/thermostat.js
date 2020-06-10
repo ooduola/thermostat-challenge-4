@@ -1,30 +1,39 @@
-function Thermostat() {
-  this.temperature = 20;
-  this.powerSaver = true;
-};
-
-Thermostat.prototype.getCurrentTemp = function() {
-  return this.temperature;
-};
-
-Thermostat.prototype.up = function(temperature) {
-  if ((this.temperature + temperature) > 32) {
-    throw "Temperature would be too high!"
+class Thermostat {
+  constructor() {
+    this.temperature = 20;
+    this.powerSaver = true;
+    this.maxTemp = 25;
   }
-  return this.temperature += temperature;
-};
-
-Thermostat.prototype.down = function(temperature) {
-  if ((this.temperature - temperature) < 10) {
-    throw "Temperature would be too low!";
+  getCurrentTemp() {
+    return this.temperature;
   }
-  return this.temperature -= temperature;
-};
+  up(temperature) {
+    if ((this.temperature + temperature) > this.maxTemp) {
+      throw "Temperature would be too high!";
+    }
+    return this.temperature += temperature;
+  }
+  down(temperature) {
+    if ((this.temperature - temperature) < 10) {
+      throw "Temperature would be too low!";
+    }
+    return this.temperature -= temperature;
+  }
+  isPowerSaverOn() {
+    return this.powerSaver === true;
+  }
+  switchPowerSaverOff() {
+    this.powerSaver = false;
+    this.maxTemp = 32
+  }
 
-Thermostat.prototype.isPowerSaverOn = function() {
-  return this.powerSaver === true;
-};
+getMaxTemp() {
+  return this.maxTemp
+}
+}
+;
 
-Thermostat.prototype.switchPowerSaverOff = function() {
-  this.powerSaver = false
-};
+
+
+
+
