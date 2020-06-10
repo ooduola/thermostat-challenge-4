@@ -50,16 +50,33 @@ describe("thermostat",function(){
     expect(thermostat.isPowerSaverOn()).toEqual(false);
   });
 
-  it ("should have a maximum temperature of 25 when powerSaver is on", function(){
+  it ("should have a maximum temperature of 25 when powerSaver is on", function() {
     var thermostat = new Thermostat();
     expect(thermostat.getMaxTemp()).toEqual(25);
   });
 
-  it("it resets temperature to 20", function(){
+  it ("it resets temperature to 20", function(){
     var thermostat = new Thermostat();
     thermostat.up(5);
     thermostat.resetTemperature();
     expect(thermostat.getCurrentTemp()).toEqual(20);
   });
 
+  it ("it returns low-usage when temperature is less than 18 degrees", function() {
+    var thermostat = new Thermostat(); 
+    thermostat.down(3);
+    expect(thermostat.currentEnergyUsage()).toEqual("low-usage");
+  });
+
+  it ("it returns medium-usage when temperature is between 18 and 25 degrees", function() {
+    var thermostat = new Thermostat(); 
+    expect(thermostat.currentEnergyUsage()).toEqual("medium-usage");
+  });
+
+  it ("it returns high-usage when temperature is above 25 degrees ", function() {
+    var thermostat = new Thermostat(); 
+    thermostat.switchPowerSaverOff()
+    thermostat.up(6)
+    expect(thermostat.currentEnergyUsage()).toEqual("high-usage");
+  });
 });
