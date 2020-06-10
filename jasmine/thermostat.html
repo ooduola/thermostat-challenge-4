@@ -2,15 +2,18 @@
 <html>
 
 <head>
-  <script src="src/thermostat.js"></script>
 </head>
 
 <body>
-  <h4> Power Saving Switch</h4>
-  <button onclick="switchPowerSaverOff()">Power saver off</button>
-  <button onclick="switchPowerSaverOn()">Power saver on</button>
+  <h5>Power saving mode is <span id="power-saving-status">on</span></h5>
+  <h4> Power Saving Switch:</h4>
+  <button id="powersaving-off">Power saver off</button>
+  <button id="powersaving-on">Power saver on</button>
 <br>
-  <h4>Change Thermostat Temperature</h4>
+  <h4> Temperature Reset Button:</h4>
+  <button id="temperature-reset">Reset</button>
+<br>
+  <h4>Change Thermostat Temperature:</h4>
   <form>
     <input type="number" name="up">
     <input type="submit" value="up">
@@ -21,6 +24,7 @@
     <input type="submit" value="down">
   </form>
 
+  <script src="src/thermostat.js"></script>
 </body>
 
 </html>
