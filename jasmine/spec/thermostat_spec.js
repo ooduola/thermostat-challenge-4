@@ -44,10 +44,12 @@ describe("thermostat",function(){
     expect(thermostat.isPowerSaverOn()).toEqual(true);
   });
 
-  it ("should be able to turn powerSaver off", function(){
+  it ("should be able to turn powerSaver off and on", function(){
     var thermostat = new Thermostat();
     thermostat.switchPowerSaverOff();
     expect(thermostat.isPowerSaverOn()).toEqual(false);
+    thermostat.switchPowerSaverOn();
+    expect(thermostat.isPowerSaverOn()).toEqual(true);
   });
 
   it ("should have a maximum temperature of 25 when powerSaver is on", function() {

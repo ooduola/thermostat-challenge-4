@@ -26,6 +26,11 @@ class Thermostat {
     this.powerSaver = false;
     this.maxTemp = 32
   }
+
+  switchPowerSaverOn() {
+    this.powerSaver = true;
+  }
+  
   getMaxTemp() {
     return this.maxTemp
   }
