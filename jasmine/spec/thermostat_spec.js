@@ -61,6 +61,28 @@ describe("thermostat", function() {
     expect(thermostat.getCurrentTemp()).toEqual(20)
   });
 
+  describe( "current usage", function() { 
+
+    it('it returns low-usage when temperature is less that 18 degrees', function() {
+      for (var i = 0; i < 3; i++) {
+        thermostat.down();
+      } 
+      expect(thermostat.currentUsage()).toEqual("low-usage")
+    });
+
+    it('it returns medium-usage when temperature is between 18 and 25 degrees', function() {
+      expect(thermostat.currentUsage()).toEqual("medium-usage")
+    });
+
+    it('it returns low-usage when temperature is less that 18 degrees', function() {
+      for (var i = 0; i < 6; i++) {
+        thermostat.up();
+      } 
+      expect(thermostat.currentUsage()).toEqual("high-usage")
+    });
+  });
+  // You can ask about the thermostat's current energy usage: 
+  // < 18 is low-usage, < 25 is medium-usage, anything else is high-usage.
 });
 
 
