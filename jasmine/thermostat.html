@@ -1,10 +1,48 @@
+
 <!DOCTYPE html>
 <html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <title>Thermostat</title>
+</head>
+<body>
+  <section>
+    <h1 id="temperature"></h1>
+    <p>
+      <button id="temperature-up">+</button>
+      <button id="temperature-down">-</button>
+      <button id="temperature-reset">reset</button>
+      power saving mode is <span id="power-saving-status">on</span>
+      <button id="powersaving-on">PSM on</button>
+      <button id="powersaving-off">PSM off</button>
+    </p>
+  </section>
+  <script src="src/thermostat.js"></script>
+</body>
+</html>
+
+<!-- <script src="src/thermostat.js"></script>
+
+<textarea id='temperature'> </textarea>
+<button id='up'> Up </button>
+<button id='down'> Down </button>
+<textarea id='powermode'> </textarea>
+<button id='switchpowermode'> Switch power mode </button>
+<button id='reset'> Reset </button>
+<span id='energyusage'> </span> -->
+
+
+
+
+<!-- <html>
+
+<script src="src/thermostat.js"></script>
 
 <head>
 </head>
 
 <body>
+  <textarea id="temperature"> thermostat.getCurrentTemp </textarea>
   <h5>Power saving mode is <span id="power-saving-status">on</span></h5>
   <h4> Power Saving Switch:</h4>
   <button id="powersaving-off">Power saver off</button>
@@ -14,17 +52,9 @@
   <button id="temperature-reset">Reset</button>
 <br>
   <h4>Change Thermostat Temperature:</h4>
-  <form>
-    <input type="number" name="up">
-    <input type="submit" value="up">
-  </form>
-<br>
-  <form>
-    <input type="number" name="down">
-    <input type="submit" value="down">
-  </form>
+  <button id="up"> Up </button>
+  <button id="down"> Down </button>
 
-  <script src="src/thermostat.js"></script>
 </body>
 
-</html>
+</html> -->
