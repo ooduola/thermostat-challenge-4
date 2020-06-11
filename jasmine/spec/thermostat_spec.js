@@ -29,6 +29,32 @@ describe("thermostat", function() {
     expect(thermostat.isPowerSavingModeOn()).toBe(true);
   });
 
+  it('has a maximum temp of 25 if power saving mode On', function() {
+    for (var i = 0; i < 6; i++) {
+      thermostat.up();
+    }
+    expect(thermostat.getCurrentTemp()).toEqual(25)
+  })
+
+  it('has a maximum temp of 32 if power saving mode Off', function() {
+    thermostat.switchPowerSavingModeOff()
+    for (var i = 0; i < 15; i++) {
+      thermostat.up()
+    }
+    expect(thermostat.getCurrentTemp()).toEqual(32)
+  });
+
+  it('has a method to switch off the PSM', function() {
+    thermostat.switchPowerSavingModeOff()
+    expect(thermostat.isPowerSavingModeOn()).toBe(false)
+  });
+
+  it('has a method to switch PSM on', function() {
+    thermostat.switchPowerSavingModeOff()
+    thermostat.switchPowerSavingModeOn()
+    expect(thermostat.isPowerSavingModeOn()).toBe(true)
+  });
+
 });
 
 
@@ -45,7 +71,7 @@ describe("thermostat", function() {
 //     }
 //     expect(thermostat.getCurrentTemp()).toEqual(10);
 //   });
-  
+
 
 
 //   it ("switching powerSaver off sets the maxTemp to 32", function() {

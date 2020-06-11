@@ -3,6 +3,8 @@ class Thermostat {
     this.temperature = 20;
     this.MINIMUM_TEMP = 10
     this.powerSavingMode = true;
+    this.MAX_TEMP_PSM_ON = 25;
+    this.MAX_TEMP_PSM_OFF = 32;
     // this.maxTemperature = 25;
   }
   getCurrentTemp() {
@@ -10,11 +12,13 @@ class Thermostat {
   }
 
   up() {
+    if (this.isMaximumTemperature()){
+      return;
+    }
     this.temperature ++
   }
-  
-  down() {
 
+  down() {
     if (this.isMinimumTemperature()) {
       return;
     } else {
@@ -28,7 +32,26 @@ class Thermostat {
 
   isPowerSavingModeOn() {
     return this.powerSavingMode === true;
-  }   
+  }
+
+  isMaximumTemperature() {
+    if (this.isPowerSavingModeOn()) {
+      return this.temperature === this.MAX_TEMP_PSM_ON
+    }
+    else {
+      return this.temperature === this.MAX_TEMP_PSM_OFF
+    }
+  }
+
+  switchPowerSavingModeOff() {
+    this.powerSavingMode = false
+  }
+
+  switchPowerSavingModeOn() {
+    this.powerSavingMode = true
+  }
+
+
 
 }
 
@@ -73,8 +96,3 @@ class Thermostat {
 //     }
 //   }
 // }
-
-
-
-
-
