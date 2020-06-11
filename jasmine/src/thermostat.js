@@ -34,6 +34,11 @@ class Thermostat {
     return this.powerSavingMode === true;
   }
 
+  resetTemperature() {
+
+    this.temperature = 20
+  }
+
   isMaximumTemperature() {
     if (this.isPowerSavingModeOn()) {
       return this.temperature === this.MAX_TEMP_PSM_ON
