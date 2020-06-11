@@ -1,54 +1,78 @@
 class Thermostat {
   constructor() {
     this.temperature = 20;
-    this.powerSaver = true;
-    this.maxTemp = 25;
+    this.MINIMUM_TEMP = 10
+    this.powerSavingMode = true;
+    // this.maxTemperature = 25;
   }
   getCurrentTemp() {
     return this.temperature;
   }
-  up(temperature) {
-    if ((this.temperature + temperature) > this.maxTemp) {
-      throw "Temperature would be too high!";
-    }
-    return this.temperature += temperature;
-  }
-  down(temperature) {
-    if ((this.temperature - temperature) < 10) {
-      throw "Temperature would be too low!";
-    }
-    return this.temperature -= temperature;
-  }
-  isPowerSaverOn() {
-    return this.powerSaver === true;
-  }
-  switchPowerSaverOff() {
-    this.powerSaver = false;
-    this.maxTemp = 32
-  }
 
-  switchPowerSaverOn() {
-    this.powerSaver = true;
+  up() {
+    this.temperature ++
   }
   
-  getMaxTemp() {
-    return this.maxTemp
-  }
+  down() {
 
-  resetTemperature() {
-    this.temperature = 20
-  }
-
-  currentEnergyUsage() {
-    if (this.temperature < 18 ) {
-      return "low-usage"
-    } else if (this.temperature < 25) {
-      return "medium-usage"
+    if (this.isMinimumTemperature()) {
+      return;
     } else {
-      return "high-usage"
+      this.temperature --
     }
   }
+
+  isMinimumTemperature() {
+     return this.temperature === this.MINIMUM_TEMP
+  }
+
+  isPowerSavingModeOn() {
+    return this.powerSavingMode === true;
+  }   
+
 }
+
+
+
+
+
+//   up(temperature) {
+//     if ((this.temperature + temperature) > this.maxTemp) {
+//       throw "Temperature would be too high!";
+//     }
+//     return this.temperature += temperature;
+//   }
+//   down(temperature) {
+//     if ((this.temperature - temperature) < 10) {
+//       throw "Temperature would be too low!";
+//     }
+//     return this.temperature -= temperature;
+//   }
+//   isPowerSaverOn() {
+//     return this.powerSaver === true;
+//   }
+//   switchPowerSaverOff() {
+//     this.powerSaver = false;
+//     this.maxTemp = 32
+//   }
+//   getMaxTemp() {
+//     return this.maxTemp
+//   }
+
+//   resetTemperature() {
+//     this.temperature = 20
+//   }
+
+//   currentEnergyUsage() {
+//     if (this.temperature < 18 ) {
+//       return "low-usage"
+//     } else if (this.temperature <) {
+//       return "medium-usage"
+//     } else {
+//       return "high-usage"
+//     }
+//   }
+// }
 
 
 
