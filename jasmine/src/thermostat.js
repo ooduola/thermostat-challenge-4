@@ -8,7 +8,6 @@ class Thermostat {
     
     this.powerSavingMode = true;
     this.temperature = this.DEFAULT_TEMP
-
   }
   getCurrentTemp() {
     return this.temperature;

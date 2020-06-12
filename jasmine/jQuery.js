@@ -5,19 +5,18 @@ $(document).ready(function() {
 
   $('#temperature-up').on('click', function(){
     thermostat.up();
-    $('#temperature').text(thermostat.temperature);
+    updateTemp();
   });
 
   $('#temperature-down').on('click', function(){
     thermostat.down();
-    $('#temperature').text(thermostat.temperature);
+    updateTemp();
   })
 
   $('#temperature-reset').on('click', function(){
     thermostat.resetTemperature();
-    $('#temperature').text(thermostat.temperature);
+    updateTemp();
   })
-
   
   $('#powersaving-on').on('click', function(){
     thermostat.switchPowerSavingModeOn();
@@ -28,4 +27,18 @@ $(document).ready(function() {
     thermostat.switchPowerSavingModeOff();
     $('#power-saving-status').text('OFF');
   });
+
+  function updateTemp() {
+    $('#temperature').text(thermostat.temperature);
+
+    if(thermostat.currentUsage() === 'low-usage') {
+      $('#temperature').css('color', 'green')
+    } else if(thermostat.currentUsage() === 'medium-usage') { 
+        $('#temperature').css('color', 'orange')
+    } else {
+      $('#temperature').css('color', 'red')
+    }
+  };
+
+
 })
