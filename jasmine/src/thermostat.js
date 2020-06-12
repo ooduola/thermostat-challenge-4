@@ -1,13 +1,14 @@
 class Thermostat {
   constructor() {
     this.DEFAULT_TEMP = 20
-    this.temperature = this.DEFAULT_TEMP
     this.MINIMUM_TEMP = 10
-    this.powerSavingMode = true;
     this.MAX_TEMP_PSM_ON = 25;
     this.MAX_TEMP_PSM_OFF = 32;
     this.MED_ENERGY_USAGE_LIMIT = 18
-    // this.maxTemperature = 25;
+    
+    this.powerSavingMode = true;
+    this.temperature = this.DEFAULT_TEMP
+
   }
   getCurrentTemp() {
     return this.temperature;
@@ -41,7 +42,6 @@ class Thermostat {
   }
 
   currentUsage () {
-
     if (this.temperature < this.MED_ENERGY_USAGE_LIMIT) {
       return "low-usage"
     } 
